@@ -1,3 +1,11 @@
+i/p = {2,3,4,5,9,7,6}
+o/p= 4
+
+Approach=> 1. we will let first element of array as max element
+        2. now we will iterate in the whole array to check if current element is greater than the max element
+         3. if we find the current element as maximinm the we will make current element as maximum.
+
+
 #include <bits/stdc++.h> 
 int largestElement(vector<int> &arr, int n) {
     // Write your code here.
@@ -11,4 +19,7 @@ int largestElement(vector<int> &arr, int n) {
     }
     return max;
 }
-//Here we assume that the first element is max element and then we are iteration to check if other elements are > than max or not
+
+TC=> O(n)
+SC=>O(1)
+
