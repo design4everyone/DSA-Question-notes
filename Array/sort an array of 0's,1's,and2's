@@ -3,7 +3,7 @@ Input: nums = [2,0,2,1,1,0]
 Output: [0,0,1,1,2,2]
 
 Approach 1=> brute force
-we can sort the array and we can get easily however the time complexity=nlog(n) and space complexity= o(n)
+we can sort the array by using sort function and we can get easily however the time complexity=nlog(n) and space complexity= o(n)
 
 Approach 2=> better approach
 step1: we will take 3 counter, counter1,counter2,and counter3
