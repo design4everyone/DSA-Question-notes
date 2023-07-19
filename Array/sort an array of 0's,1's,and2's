@@ -1,0 +1,84 @@
+SORT AN ARRAY OF 0'S,1'S, AND 2'S
+Input: nums = [2,0,2,1,1,0]
+Output: [0,0,1,1,2,2]
+
+Approach 1=> brute force
+we can sort the array and we can get easily however the time complexity=nlog(n) and space complexity= o(n)
+
+Approach 2=> better approach
+step1: we will take 3 counter, counter1,counter2,and counter3
+step2: we will count the o's,1'and 2's
+step3: based on counter accordingly put the values in array
+Code: #include <bits/stdc++.h> 
+void sort012(int *arr, int n)
+{
+   //   Write your code here
+   int count0=0;
+   int count1=0;
+   int count2=0;
+   for(int i=0;i<n;i++)
+   {
+      if(arr[i]==0)
+      {
+         count0++;
+      }
+      else if(arr[i]==1)
+      {
+         count1++;
+      }
+      else{
+         count2++;
+      }
+   }
+   //putting the count0 values into the array
+   for(int i=0;i<count0;i++)
+   {
+      arr[i]=0;
+   }
+   //putting the count1 values into the array
+   for(int i=count0;i<count0+count1;i++)
+   {
+      arr[i]=1;
+   }
+   //putting count2 value into the array
+   for(int i=count0+count1;i<n;i++)
+   {
+      arr[i]=2;
+   }
+
+}
+
+Approach 3=> We can use dutch national flag algorithm
+Step1: we will take three pointers low,mid, and high
+step2:keep the low and mid=0 and high=n-1;
+step3:now we will keep moving mid pointer and as soon as we encouter 0 we will swap the arr[mid] with arr[low] and increment low and mid
+step4:similarly if we encounter 2 we will swap the arr[mid] with arr[high] and decrement high
+code:class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+       int n=nums.size();
+        int start=0;
+        int mid=0;
+        int end=n-1;
+        while(mid<=end)
+        {
+            if(nums[mid]==0)
+            {
+               swap(nums[start],nums[mid]);
+                start++;
+                mid++;
+            }
+            else if(nums[mid]==1)
+            {
+                mid++;
+            }
+            else
+            {
+                swap(nums[mid],nums[end]);
+                end--;
+                
+            }
+        }
+        
+    }
+};
